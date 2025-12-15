@@ -1,11 +1,13 @@
+# ===== Build stage =====
 FROM maven:3.8.4-openjdk-17 AS builder
 WORKDIR /app
-COPY ./src ./src
-COPY ./pom.xml .
+COPY pom.xml .
+COPY src ./src
 RUN mvn clean package -DskipTests
 
-FROM openjdk:17-jdk-alpine
+# ===== Runtime stage =====
+FROM eclipse-temurin:17-jdk-alpine
 VOLUME /tmp
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} client-service.jar
-ENTRYPOINT ["java","-jar","/client-service.jar"]
+WORKDIR /app
+COPY --from=builder /app/target/*.jar client-service.jar
+ENTRYPOINT ["java","-jar","client-service.jar"]

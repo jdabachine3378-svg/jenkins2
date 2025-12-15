@@ -1,12 +1,12 @@
-# Étape 1 : Utilisation de Maven pour construire le fichier JAR
+# Étape 1 : Build avec Maven
 FROM maven:3.8.4-openjdk-17 AS builder
 WORKDIR /app
-COPY ./pom.xml ./
-COPY ./src ./src
+COPY pom.xml .
+COPY src ./src
 RUN mvn clean package -DskipTests
 
-# Étape 2 : Création de l'image finale avec OpenJDK
-FROM openjdk:17-jdk-alpine
+# Étape 2 : Image runtime Java 17
+FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
 COPY --from=builder /app/target/*.jar gateway-service.jar
-ENTRYPOINT ["java", "-jar", "/app/gateway-service.jar"]
+ENTRYPOINT ["java","-jar","gateway-service.jar"]
