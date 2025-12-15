@@ -20,6 +20,7 @@ Le projet est composé de plusieurs services :
 - **deploy** : fichiers Docker Compose pour le déploiement
 
 ---
+<img width="542" height="424" alt="image" src="https://github.com/user-attachments/assets/385f4c1e-98b0-4558-bcb9-3d456df9ca80" />
 
 ## ⚙️ Outils et technologies utilisés
 
@@ -50,3 +51,12 @@ Compilation de chaque microservice avec Maven :
 
 ```bash
 mvn clean install -DskipTests
+```
+### SonarQube
+<img width="1755" height="849" alt="image" src="https://github.com/user-attachments/assets/b601646d-fddb-4b8e-bc20-85fa3d989433" />
+<img width="1755" height="1684" alt="image" src="https://github.com/user-attachments/assets/027c4337-12cf-4581-9f25-9d3e5c6549ec" />
+
+### docker compose
+<img width="1755" height="1378" alt="image" src="https://github.com/user-attachments/assets/5faa9fdb-ff6e-4d40-97e6-f4ccbe79105d" />
+
+
